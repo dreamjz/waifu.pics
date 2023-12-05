@@ -26,7 +26,9 @@ app.get('/:type/:endpoint', async (req, res) => {
 
   console.log('endpoint: ' + endpoint);
 
-  res.set('Cache-Control', 'no-cache');
+  res.set({
+    'cache-control': 'max-age=0, no-cache, no-store, must-revalidate'
+  });
 
   if (ENDPOINTS[type].includes(endpoint)) {
     fetchImage(type, endpoint, res);
@@ -73,7 +75,9 @@ app.get('/:type', async (req, res) => {
   let endpoint = eps[getRandomIntn(eps.length)];
   console.log('endpoint: ' + endpoint);
 
-  res.set('Cache-Control', 'no-cache');
+  res.set({
+    'cache-control': 'max-age=0, no-cache, no-store, must-revalidate'
+  });
 
   if (ENDPOINTS[type].includes(endpoint)) {
     fetchImage(type, endpoint, res);
