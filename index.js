@@ -95,7 +95,7 @@ async function fetchImage(type, endpoint, response) {
     got
       .stream(url)
       .on('response', (response) => {
-        response.headers['cache-control'] = 'no-cache';
+        response.headers['cache-control'] = 'max-age=0, no-cache, no-store, must-revalidate';
       })
       .pipe(response);
   } catch (error) {
