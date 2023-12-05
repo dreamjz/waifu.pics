@@ -51,7 +51,7 @@ async function fetchImage(type, endpoint, response) {
   }
 }
 
-const PORT = process.env.PORT || 8080;
+const PORT = process.env.PORT || 8880;
 
 app.listen(PORT, () => {
   console.log("Server is listening in port" + PORT);
